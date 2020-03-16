@@ -9,7 +9,7 @@ spring:
       
   # Set datasource
   datasource:
-    url: jdbc:h2:file:/Users/ykson/Downloads/h2-test
+    url: jdbc:h2:file:/Users/leo/Downloads/h2-test
     driver-class-name: org.h2.Driver
     username: sa
     password: 

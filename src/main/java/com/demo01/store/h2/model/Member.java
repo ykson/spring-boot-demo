@@ -12,7 +12,7 @@ import com.google.gson.Gson;
 @Table(name = "member")
 public class Member {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
 	private int age;
