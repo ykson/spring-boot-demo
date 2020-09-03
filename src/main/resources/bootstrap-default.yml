@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: default
+  application:
+    name: BOOTSTRAP_APP_DEFAULT
+  cloud:
+    config:
+      uri: http://localhost:8888
