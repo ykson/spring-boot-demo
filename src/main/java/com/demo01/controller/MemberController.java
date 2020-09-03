@@ -1,30 +1,33 @@
 package com.demo01.controller;
 
-import java.util.List;
-
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Value;
+import com.demo01.domain.service.NameService;
+import com.demo01.store.h2.MemberService;
+import com.demo01.store.h2.model.Member;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.demo01.store.h2.MemberService;
-import com.demo01.store.h2.model.Member;
+import javax.annotation.Resource;
+import java.util.List;
 
 @RestController
 public class MemberController {
-	@Value("${spring.application.name}")
-	private String appName;
 	//< MemberServiceImpl.java의 @Service annotation의 value값으로 정의한 이름을 설정
 	@Resource(name = "memberServiceImpl")
 	private MemberService memberService;
+	@Resource(name = "nameServiceImpl")
+	private NameService nameService;
 	
 	@RequestMapping(value = "/name", method = RequestMethod.GET)
 	public String getName() {
-		String name = appName;
-		
+		String name = null;
+		try {
+			name = nameService.getName();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		return name;
 	}
 	
