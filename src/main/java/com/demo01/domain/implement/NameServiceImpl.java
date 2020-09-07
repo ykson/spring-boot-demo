@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class NameServiceImpl implements NameService {
     @Value("${spring.application.name}")
     private String appName;
-    @Value("${test.my_name")
+    @Value("${test.my_name}")
     private String myName;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
