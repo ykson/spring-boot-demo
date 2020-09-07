@@ -3,3 +3,6 @@ spring:
     active: default
   application:
     name: GIT_TEST
+
+test:
+  my_name: LEO

@@ -3,6 +3,7 @@ package com.demo01.controller;
 import com.demo01.domain.service.NameService;
 import com.demo01.store.h2.MemberService;
 import com.demo01.store.h2.model.Member;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -13,6 +14,8 @@ import java.util.List;
 
 @RestController
 public class MemberController {
+	@Value("${test.my_name}")
+	private String myName;
 	//< MemberServiceImpl.java의 @Service annotation의 value값으로 정의한 이름을 설정
 	@Resource(name = "memberServiceImpl")
 	private MemberService memberService;
@@ -29,6 +32,11 @@ public class MemberController {
 		}
 
 		return name;
+	}
+
+	@RequestMapping(value = "/my_name", method = RequestMethod.GET)
+	public String getMyName() {
+		return myName;
 	}
 	
 	/**
