@@ -2,4 +2,4 @@ spring:
   profiles:
     active: default
   application:
-    name: APP_DEFAULT
+    name: GIT_TEST
