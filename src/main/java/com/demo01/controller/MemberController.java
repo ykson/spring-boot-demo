@@ -57,6 +57,19 @@ public class MemberController {
 
 		return yourName;
 	}
+
+	@RequestMapping(value = "/greeting", method = RequestMethod.GET)
+	public String greeting() {
+		String myName = null;
+
+		try {
+			myName = nameService.getMyName();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return "Hello " + myName;
+	}
 	
 	/**
 	 * Add
