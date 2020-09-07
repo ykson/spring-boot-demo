@@ -5,9 +5,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service(value = "nameServiceImpl")
+
 public class NameServiceImpl implements NameService {
     @Value("${spring.application.name}")
     private String appName;
+    @Value("${test.my_name}")
+    private String myName;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //< override functions
@@ -18,6 +21,11 @@ public class NameServiceImpl implements NameService {
     @Override
     public String getName() throws Exception {
         return appName;
+    }
+
+    @Override
+    public String getMyName() throws Exception {
+        return myName;
     }
 
 
