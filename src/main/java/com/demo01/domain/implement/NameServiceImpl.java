@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 public class NameServiceImpl implements NameService {
     @Value("${spring.application.name}")
     private String appName;
+    @Value("${test.your_name}")
+    private String yourName;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //< override functions
@@ -18,6 +20,11 @@ public class NameServiceImpl implements NameService {
     @Override
     public String getName() throws Exception {
         return appName;
+    }
+
+    @Override
+    public String getYourName() throws Exception {
+        return yourName;
     }
 
 
