@@ -11,6 +11,8 @@ public class NameServiceImpl implements NameService {
     private String appName;
     @Value("${test.my_name}")
     private String myName;
+    @Value("${test.your_name}")
+    private String yourName;
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //< override functions
@@ -28,8 +30,11 @@ public class NameServiceImpl implements NameService {
         return myName;
     }
 
+    @Override
+    public String getYourName() throws Exception {
+        return yourName;
+    }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////
     //< private functions
-
 }

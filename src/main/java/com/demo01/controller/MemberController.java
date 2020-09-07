@@ -14,8 +14,6 @@ import java.util.List;
 
 @RestController
 public class MemberController {
-	@Value("${test.your_name}")
-	private String yourName;
 	//< MemberServiceImpl.java의 @Service annotation의 value값으로 정의한 이름을 설정
 	@Resource(name = "memberServiceImpl")
 	private MemberService memberService;
@@ -49,6 +47,14 @@ public class MemberController {
 
 	@RequestMapping(value = "/your_name", method = RequestMethod.GET)
 	public String getYourName() {
+		String yourName = null;
+
+		try {
+			yourName = nameService.getYourName();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		return yourName;
 	}
 	
